@@ -21,7 +21,7 @@ import { UserService }  from './user.service';
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td><button routerLink={{user.id}} class="btn btn-sm btn-primary">Edit</button>  
-            <td><button class="btn btn-sm btn-primary">Delete</button>  
+            <td><button (click)=deleteUser(user) class="btn btn-sm btn-primary">Delete</button>  
             </tr>  
     </tbody>
   </table>
@@ -29,12 +29,25 @@ import { UserService }  from './user.service';
 })
 export class UserComponent implements OnInit {
     users:any[];
+   
     constructor(private _userService:UserService){
 
     }
     ngOnInit(){
         this._userService.getUsers()
 		.subscribe(users => this.users = users);
+    }
+    deleteUser(user:any){
+        var index = this.users.indexOf(user)
+        this.users.splice(index,1);
+        this._userService.deleteUser(user.id)
+            .subscribe(null,
+                err => {
+                    alert("Can not delete user");
+                }
+            )
+        /*this._userService.deleteUser(this.user)
+		.subscribe(users => this.users = users);*/
     }
 
 }

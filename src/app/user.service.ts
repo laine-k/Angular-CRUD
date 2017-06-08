@@ -28,6 +28,11 @@ export class UserService{
       return this._http.put(this.getUserUrl(user.id), JSON.stringify(user))
         .map(response =>response.json());
    }
+   deleteUser(userId:number){
+     console.log("Delete user" + userId);  
+      return this._http.delete(this.getUserUrl(userId))
+        .map(response =>response.json());
+   }
    private getUserUrl(userId:number){
      return this._url + "/" + userId;
    }
