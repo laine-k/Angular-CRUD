@@ -20,7 +20,7 @@ import { UserService }  from './user.service';
             <tr *ngFor="let user of users; let i = index">
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
-            <td><button class="btn btn-sm btn-primary">Edit</button>  
+            <td><button routerLink={{user.id}} class="btn btn-sm btn-primary">Edit</button>  
             <td><button class="btn btn-sm btn-primary">Delete</button>  
             </tr>  
     </tbody>
