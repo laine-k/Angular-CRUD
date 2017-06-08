@@ -1,18 +1,13 @@
 import {Component, OnInit}  from '@angular/core';
 import { PostService }  from './post.service';
-import {UserService} from './user.service';
 import {Post} from './post';
 
 @Component({ //decorator
-    selector: 'posts',
+    selector: 'user-posts',
     /*templateUrl:'./user-detail.component.html'*/
     template: `      
        <div>
-            <h3>All posts</h3>
-        <select class="form-control" (change)="reloadPosts({userId: selectedUser.id})" [(ngModel)]="selectedUser">
-            <option value =" ">Select user</option>
-            <option *ngFor="let user of users" [ngValue]="user">{{user.name}}</option>
-        </select>
+            <h3>Show posts of the particular user</h3>
         <table border="1">
         <thead>
             <tr>
@@ -33,36 +28,21 @@ import {Post} from './post';
     ` 
 })
 
-export class PostComponent implements OnInit  { //constructor
-    selectedUser:Object ={}
+export class UserPostComponent implements OnInit  { //constructor
     posts:Post[]; //posts property that returns an array of posts that it acquires from a service
-    users:any;
-    currentPost:any;
     errorMessage:any;
     constructor(
-            private _postService:PostService,
-            private _userService:UserService
+            private _postService:PostService
         ) {}  
 
     ngOnInit(){
         this.getPosts();
-        this.getUsers();        
     } 
 
-     private getPosts(filter?) {
-        this._postService.getPosts(filter)
+     getPosts() {
+        this._postService.getPosts()
             .subscribe( 
                 posts => this.posts = posts,
                 error => this.errorMessage = <any>error);
-     }
-     reloadPosts(filter:any){
-         console.log(filter);
-        this.currentPost = null;
-        this.getPosts(filter);
-     }
-     private getUsers(){
-        this._userService.getUsers()
-            .subscribe( 
-                users => this.users = users)
      }
 }

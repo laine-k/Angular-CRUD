@@ -15,8 +15,7 @@ import { NavComponent }  from './navbar.component';
   <navbar></navbar>
   <div class="container">
     <router-outlet></router-outlet>
-  </div>
-  <h1>Hello</h1>   
+  </div> 
     `,
 })
 export class AppComponent {

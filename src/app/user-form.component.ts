@@ -4,6 +4,7 @@ import {ValidatorsCustom} from './validators-custom';
 import { UserService }  from './user.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {User} from './user';
+import { UserPostComponent }  from './user-post.component';
 
 import 'rxjs/add/operator/switchMap';
 

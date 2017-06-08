@@ -4,6 +4,7 @@ import { HomeComponent }  from './home.component';
 import { UserComponent }  from './user.component';
 import { PostComponent }  from './post.component';
 import { UserFormComponent }  from './user-form.component';
+import { UserPostComponent }  from './user-post.component';
 
 const routes: Routes = [
       {
@@ -20,7 +21,13 @@ const routes: Routes = [
       },
       {
         path: 'users/:id',
-        component: UserFormComponent        
+        component: UserFormComponent,
+        children:[
+          {
+            path:'posts',
+            component:UserPostComponent
+          }          
+        ]       
       },
       {
         path: 'home',

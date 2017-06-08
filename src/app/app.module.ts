@@ -14,6 +14,7 @@ import { NavComponent }  from './navbar.component';
 import { HomeComponent }  from './home.component';
 import { UserComponent }  from './user.component';
 import { UserFormComponent }  from './user-form.component';
+import { UserPostComponent }  from './user-post.component';
 
 import { PostComponent }  from './post.component';
 
@@ -24,7 +25,7 @@ import { GithubService }  from './githup.service';
 
 @NgModule({
   imports:      [ BrowserModule,HttpModule, JsonpModule, AppRoutingModule,FormsModule,ReactiveFormsModule ],
-  declarations: [ AppComponent,GithubProfileComponent,NavComponent, HomeComponent, UserComponent, PostComponent,UserFormComponent],
+  declarations: [ AppComponent,GithubProfileComponent,NavComponent, HomeComponent, UserComponent, PostComponent,UserFormComponent, UserPostComponent],
   bootstrap:    [ AppComponent ],
   providers:    [PostService,UserService, GithubService]
 })

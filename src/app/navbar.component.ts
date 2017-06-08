@@ -21,7 +21,7 @@ import { Component } from '@angular/core';
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-            <a routerLink="/posts" routerLinkActive="active-link" #rla="routerLinkActive">Posts</a>
+            <a routerLink="/posts" routerLinkActive="active-link" #rla="routerLinkActive">All posts</a>
         </li>
         <li>
             <a routerLink="/users" routerLinkActive="active-link">Users</a>
