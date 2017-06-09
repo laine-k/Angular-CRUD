@@ -5,12 +5,12 @@ import {Injectable} from '@angular/core';
 import {Post} from './post';
 
 @Injectable() //to make the class available for DI
-export class PostService{
-    private _url="https://jsonplaceholder.typicode.com/posts";
+export class AlbumsService{
+    private _url="https://jsonplaceholder.typicode.com/albums";
     constructor(private _http:Http){
 
     }
-    getPosts(filter?:any) : Observable <Post[]>{
+    getAlbums(filter?:any) : Observable <Post[]>{
         //console.log("User id for filter: "+filter);
         var url = this._url;
         if(filter && filter.userId)
@@ -18,9 +18,5 @@ export class PostService{
         //console.log("URL: "+filter.userId);
         return this._http.get(url)
         .map(res=>res.json());
-    }
-    createPost(post:Post){
-        return this._http.post(this._url, JSON.stringify) //scond is is a string that represent request body.Serialize post object as a string.
-        .map(res=>res.json());
-    }
+    }    
 }

@@ -1,4 +1,5 @@
 import {Component, OnInit}  from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import { PostService }  from './post.service';
 import {Post} from './post';
 
@@ -32,15 +33,25 @@ export class UserPostComponent implements OnInit  { //constructor
     posts:Post[]; //posts property that returns an array of posts that it acquires from a service
     errorMessage:any;
     constructor(
-            private _postService:PostService
+            private _postService:PostService,
+            private _router: Router,
+		    private _activatedRoute:ActivatedRoute
         ) {}  
 
     ngOnInit(){
-        this.getPosts();
+        var id= this._activatedRoute.snapshot.parent.params['id'];
+        console.log("User id:" +id);
+        //this.getPosts(id);
+        this.getPosts({userId: id})
     } 
-
-     getPosts() {
+     /*getPosts() {
         this._postService.getPosts()
+            .subscribe( 
+                posts => this.posts = posts,
+                error => this.errorMessage = <any>error);
+     }*/
+     private getPosts(filter?:any) {
+        this._postService.getPosts(filter)
             .subscribe( 
                 posts => this.posts = posts,
                 error => this.errorMessage = <any>error);

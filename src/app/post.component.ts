@@ -21,7 +21,6 @@ import {Post} from './post';
             <th>Post</th>            
             </tr>
         </thead>
-
        <tbody>
             <tr *ngFor="let post of posts; let i = index">
             <td>{{post.userId}}</td>    
@@ -49,7 +48,7 @@ export class PostComponent implements OnInit  { //constructor
         this.getUsers();        
     } 
 
-     private getPosts(filter?) {
+     private getPosts(filter?:any) {
         this._postService.getPosts(filter)
             .subscribe( 
                 posts => this.posts = posts,

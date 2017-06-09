@@ -8,8 +8,6 @@ import { UserPostComponent }  from './user-post.component';
 
 import 'rxjs/add/operator/switchMap';
 
-
-
 @Component({
   selector: 'user-form', 
   templateUrl: 'app/user-form.component.html'
@@ -20,6 +18,7 @@ export class UserFormComponent implements OnInit {
 	title:string;
 	//user={address:{}}; //blank user object prevents us from getting null reference exceptions
 	user = new User();
+	//userId = this.user.id;
 	submitBtnText:string;
 
 
@@ -61,7 +60,7 @@ export class UserFormComponent implements OnInit {
 		})
 	}
 	ngOnInit(){
-		var id= this._activatedRoute.snapshot.params['id'];
+		var id= this._activatedRoute.snapshot.parent.params['id'];
 		this.title = id ? "Edit user" : "Add new user";
 		this.submitBtnText = id ? "Update user details" : "Add new user";
 		console.log("user id:" + id);
@@ -92,5 +91,3 @@ export class UserFormComponent implements OnInit {
 		);*/
 	}
 }
-
-//name: ['', Validators.required],

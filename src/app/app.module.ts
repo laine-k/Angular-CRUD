@@ -13,20 +13,23 @@ import { GithubProfileComponent }  from './github-profile.component';
 import { NavComponent }  from './navbar.component';
 import { HomeComponent }  from './home.component';
 import { UserComponent }  from './user.component';
+import { UserProfileComponent }  from './user-profile.component';
 import { UserFormComponent }  from './user-form.component';
 import { UserPostComponent }  from './user-post.component';
 
 import { PostComponent }  from './post.component';
+import {AlbumsComponent} from './albums.component';
 
 /**Services */
 import { PostService }  from './post.service';
+import { AlbumsService }  from './albums.service';
 import { UserService }  from './user.service';
 import { GithubService }  from './githup.service';
 
 @NgModule({
   imports:      [ BrowserModule,HttpModule, JsonpModule, AppRoutingModule,FormsModule,ReactiveFormsModule ],
-  declarations: [ AppComponent,GithubProfileComponent,NavComponent, HomeComponent, UserComponent, PostComponent,UserFormComponent, UserPostComponent],
+  declarations: [ AppComponent,GithubProfileComponent,NavComponent, HomeComponent, UserComponent, PostComponent, AlbumsComponent , UserProfileComponent,UserFormComponent, UserPostComponent],
   bootstrap:    [ AppComponent ],
-  providers:    [PostService,UserService, GithubService]
+  providers:    [PostService, AlbumsService, UserService, GithubService]
 })
 export class AppModule { }
