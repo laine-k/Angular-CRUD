@@ -4,8 +4,7 @@ import {UserService} from './user.service';
 import {Post} from './post';
 
 @Component({ //decorator
-    selector: 'posts',
-    /*templateUrl:'./user-detail.component.html'*/
+    selector: 'posts',   
     template: `      
        <div>
             <h3>All posts</h3>

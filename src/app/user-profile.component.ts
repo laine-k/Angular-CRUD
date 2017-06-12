@@ -9,10 +9,12 @@ import { UserService }  from './user.service';
 @Component({
   selector: 'user-profile', 
   template: `
+<div class="col-md-12">
 <h3>{{user.name}} profile</h3>
-<button [routerLink]="['posts']" class="btn btn-primary">User posts</button>
-<button [routerLink]="['albums']" class="btn btn-primary">User albums</button>
-<button [routerLink]="['edit-profile']" class="btn btn-warning">Edit profile</button>
+<button routerLink="posts" class="btn btn-primary">User posts</button>
+<button routerLink="albums" class="btn btn-primary">User albums</button>
+<button routerLink="edit-profile" class="btn btn-warning">Edit profile</button>
+</div>
 <router-outlet></router-outlet> 
 `
 })
