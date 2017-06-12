@@ -16,6 +16,7 @@ import { UserComponent }  from './user.component';
 import { UserProfileComponent }  from './user-profile.component';
 import { UserFormComponent }  from './user-form.component';
 import { UserPostComponent }  from './user-post.component';
+import { PaginationComponent }  from './pagination.component';
 
 import { PostComponent }  from './post.component';
 import {AlbumsComponent} from './albums.component';
@@ -28,7 +29,7 @@ import { GithubService }  from './githup.service';
 
 @NgModule({
   imports:      [ BrowserModule,HttpModule, JsonpModule, AppRoutingModule,FormsModule,ReactiveFormsModule ],
-  declarations: [ AppComponent,GithubProfileComponent,NavComponent, HomeComponent, UserComponent, PostComponent, AlbumsComponent , UserProfileComponent,UserFormComponent, UserPostComponent],
+  declarations: [ AppComponent,GithubProfileComponent,NavComponent, HomeComponent, UserComponent, PostComponent, AlbumsComponent , UserProfileComponent,UserFormComponent, UserPostComponent,PaginationComponent],
   bootstrap:    [ AppComponent ],
   providers:    [PostService, AlbumsService, UserService, GithubService]
 })
